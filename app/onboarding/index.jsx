@@ -13,7 +13,7 @@ export default function OnboardingScreen() {
       <Text style={styles.title}>Spend Smarter {"\n"}Save More</Text>
 
       {/* Get Started Button */}
-      <TouchableOpacity style={styles.button} onPress={() => router.push('/HomeScreen')}>
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/home')}> 
         <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
 
