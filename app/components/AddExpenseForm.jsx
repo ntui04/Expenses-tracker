@@ -4,7 +4,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 
-export default function AddExpenseForm({ onSubmit }) {
+export default function AddExpenseForm({ onSubmit, expenses }) {
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState(new Date());
   const [purpose, setPurpose] = useState(""); // New state variable for purpose
@@ -78,14 +78,7 @@ export default function AddExpenseForm({ onSubmit }) {
       <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit}>
         <Text style={styles.submitText}>Save Expense</Text>
       </TouchableOpacity>
-
-      {/* View Expenses Button */}
-      <TouchableOpacity
-        style={[styles.submitBtn, { marginTop: 10 }]}
-        onPress={() => navigation.navigate('ExpenseList')}
-      >
-        <Text style={styles.submitText}>View Expenses</Text>
-      </TouchableOpacity>
+        
     </View>
   );
 }
