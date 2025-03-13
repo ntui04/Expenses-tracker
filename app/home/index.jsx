@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import AddExpenseForm from "../components/AddExpenseForm";
 
-export default function HomeScreen({ addExpense }) {
+export default function HomeScreen() {
   const [expenses, setExpenses] = useState([]);
 
   const handleAddExpense = (expense) => {
-    addExpense(expense);
+    // Add the new expense to the expenses array
     setExpenses([...expenses, { ...expense, id: Date.now().toString() }]);
   };
 
@@ -23,7 +23,7 @@ export default function HomeScreen({ addExpense }) {
           <View style={styles.expenseItem}>
             <Text>{item.date}</Text>
             <Text style={styles.amount}>${item.amount}</Text>
-            <Text style={styles.purpose}>{item.purpose}</Text> {/* Display purpose */}
+            <Text style={styles.purpose}>{item.purpose}</Text>
           </View>
         )}
       />
