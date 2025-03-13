@@ -1,21 +1,10 @@
-import React, { useState } from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
-import AddExpenseForm from "../components/AddExpenseForm";
+import React from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 
-export default function HomeScreen({ addExpense }) {
-  const [expenses, setExpenses] = useState([]);
-
-  const handleAddExpense = (expense) => {
-    addExpense(expense);
-    setExpenses([...expenses, { ...expense, id: Date.now().toString() }]);
-  };
-
+export default function ExpenseList({ expenses }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Add Expense</Text>
-      <AddExpenseForm onSubmit={handleAddExpense} />
-      
-      <Text style={styles.subtitle}>Expense List</Text>
+      <Text style={styles.title}>Expense List</Text>
       <FlatList
         data={expenses}
         keyExtractor={(item) => item.id}
@@ -44,13 +33,6 @@ const styles = StyleSheet.create({
     color: '#064E3B',
     marginBottom: 20,
   },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#064E3B',
-    marginBottom: 10,
-  },
   expenseItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -68,3 +50,4 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 });
+
